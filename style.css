@@ -1,25 +1,129 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f4f4f4;
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-h1, h2 {
+
+/* Background */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 30px;
     color: #333;
 }
-form {
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #fff;
     margin-bottom: 20px;
+    font-weight: 600;
 }
-input, button {
-    padding: 10px;
-    margin: 5px;
+
+h2 {
+    margin: 20px 0 10px;
+    color: #fff;
 }
+
+/* Form */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    width: 180px;
+    transition: 0.3s;
+}
+
+input:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* Button */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #00c6ff;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Table */
 table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 15px;
 }
-th, td {
-    border: 1px solid #999;
-    padding: 10px;
-    text-align: left;
-    background: white;
+
+th {
+    background: rgba(0,0,0,0.3);
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    background: rgba(255,255,255,0.9);
+}
+
+/* Zebra rows */
+tr:nth-child(even) td {
+    background: rgba(240,240,255,0.9);
+}
+
+/* Hover effect */
+tr:hover td {
+    background: #dfe9ff;
+    transition: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    button {
+        width: 95%;
+    }
 }
