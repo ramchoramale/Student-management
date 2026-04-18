@@ -2,28 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>Student Management System</h1>
-    <form action="/add" method="post">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="number" name="age" placeholder="Age" required>
-        <input type="text" name="course" placeholder="Course" required>
-        <button type="submit">Add Student</button>
-    </form>
-    <h2>Students</h2>
-    <table>
-        <tr><th>Name</th><th>Age</th><th>Course</th></tr>
-        {% for student in students %}
-        <tr>
-            <td>{{ student[1] }}</td>
-            <td>{{ student[2] }}</td>
-            <td>{{ student[3] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>🎓 Student Management System</h1>
+        <p>Manage students easily & efficiently</p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- FORM SECTION -->
+        <section class="card form-section">
+            <h2>Add Student</h2>
+
+            <form action="/add" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Enter Name" required>
+                    <input type="number" name="age" placeholder="Enter Age" required>
+                    <input type="text" name="course" placeholder="Enter Course" required>
+                </div>
+
+                <button type="submit">➕ Add Student</button>
+            </form>
+        </section>
+
+        <!-- TABLE SECTION -->
+        <section class="card table-section">
+            <h2>Student List</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ student[1] }}</td>
+                            <td>{{ student[2] }}</td>
+                            <td>{{ student[3] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Student Management System | Made with ❤️</p>
+    </footer>
+
 </body>
 </html>
-
